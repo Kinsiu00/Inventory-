@@ -17,7 +17,6 @@ if __name__ == '__main__':
             elif cmd.lower() == 'c':
                 name, price, quantity, _id = "", "", "", ""
                 inventory.define_product()
-                # inventory.set_product(name, price, _id, quantity)
                 print("New product is added to inventory with id: {}".format(_id))
             elif cmd.lower() == 'r':
                 inventory.list_products()
