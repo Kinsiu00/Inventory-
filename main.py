@@ -15,12 +15,9 @@ if __name__ == '__main__':
                 pid = input("Please enter product id you want to delete: ")
                 inventory.delete_product(pid)
             elif cmd.lower() == 'c':
-                print("Please enter new product information")
-                name = input("Name: ")
-                price = input("Price: ")
-                quantity = input("Quantity: ")
-                _id = inventory.get_last_id()
-                inventory.set_product(name, price, _id, quantity)
+                name, price, quantity, _id = "", "", "", ""
+                inventory.define_product()
+                # inventory.set_product(name, price, _id, quantity)
                 print("New product is added to inventory with id: {}".format(_id))
             elif cmd.lower() == 'r':
                 inventory.list_products()

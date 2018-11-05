@@ -8,6 +8,28 @@ class Inventory:
         self.products = []
         self.last_id = 0
 
+    def define_product(self):
+        print("Please enter new product information")
+        name = input("Name: ")
+        price = input("Price: ")
+        while self.validate(price) == -1:
+            price = input("Price must be a number: ")
+        price = self.validate(price)
+        quantity = input("Quantity: ")
+        while self.validate(quantity) == -1:
+            quantity = input("Quantity must be a number: ")
+        quantity = self.validate(quantity)
+        _id = self.get_last_id()
+        self.set_product(name, price, _id, quantity)
+
+    def validate(self, vals):
+        vals = [v for v in vals if not v.isalpha()]
+
+        if len(vals) == 0:
+            return -1
+        else:
+            return int("".join(vals))  
+
     def set_product(self, name, price, _id, quantity):
         product = Product(name, price, _id, quantity)
         self.products.append(product)
